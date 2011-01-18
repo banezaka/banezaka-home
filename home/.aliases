@@ -11,8 +11,4 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias hosts='fraise /etc/hosts'
-alias aliases='fraise ~/.aliases'
-alias banezaka='cd /Volumes/Warehouse/archive/repo/Banezaka'
-
-wo () { cd /srv/www/${1} ; }
+alias dev='cd ~/dev'

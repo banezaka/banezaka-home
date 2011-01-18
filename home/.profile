@@ -6,3 +6,4 @@ export CLICOLOR=1
 export PS1="\t \u@\h${color_green}\w\[${color_none}\]\n$ "
 
 . .aliases
+. .n1aliases
