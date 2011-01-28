@@ -3,7 +3,7 @@ export CLICOLOR=1
 
 #export LSCOLORS=GxFxCxDxBxegedabagaced
 
-export PS1="\t \u@\h${color_green}\w\[${color_none}\]\n$ "
+export PS1="\n\n\n\t \u@\h${color_green}\w\[${color_none}\]\n$ "
 
 . .aliases
 . .n1aliases

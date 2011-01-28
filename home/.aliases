@@ -12,3 +12,6 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 alias dev='cd ~/dev'
+alias mamp='cd /mamp'
+
+alias hosts='fraise /etc/hosts'
