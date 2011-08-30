@@ -11,7 +11,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias dev='cd ~/dev'
-alias mamp='cd /mamp'
-
 alias hosts='fraise /etc/hosts'
+
+alias slt='open -a "Sublime Text 2"'
+alias n='nano'
+alias d='drush'
+alias g='git'

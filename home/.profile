@@ -1,7 +1,7 @@
 export LANG=sv_SE.UTF-8
 export CLICOLOR=1
 
-#export LSCOLORS=GxFxCxDxBxegedabagaced
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export PS1="\n\n\n\t \u@\h${color_green}\w\[${color_none}\]\n$ "
 
