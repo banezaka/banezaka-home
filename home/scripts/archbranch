@@ -1,0 +1,59 @@
+#!/bin/bash
+
+################################################################################
+# archbranch - Script for archiving git branches as tags
+#
+# Usage - $/your/location/of/script/archbranch [branchname]
+#
+# WARNING - This is still in the development phase and should be used with care,
+# do not use if you have not read through the script and understands the process.
+#
+# @author: Banezaka - banezaka@gmail.com
+# 
+################################################################################
+
+# todo: create a check for if the branch that going to be archived exists or not
+# todo: if somethings outputs fatal error or something like that, stop the script
+# todo: check if really necessary to do a fetch
+# todo: a check for if checkout or checkout -t-b is necessary
+
+if [ $1 != "" ]; then
+  read -p "Are you sure you want to archive the branch $1 ? [y/n] " prompt
+  if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
+    git checkout --track -b $1 origin/$1
+
+    echo -e "\n - Pulling on branch $1"
+    git pull origin $1
+
+    echo -e "\n - Doing a git fetch"
+    git fetch
+
+    echo -e "\n - Creating the tag archive/$1"
+    git tag archive/$1
+
+    echo -e "\n - Pushing tags to remote"
+    git push origin archive/$1
+
+    echo -e "\n - Checking out master"
+    git checkout master
+
+    read -p "The branch $1 has now been tagged but not yet archived. Are you sure you want to delete the branch $1 ? [y/n] " prompt
+    if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
+      echo -e "\n - Removing the branch $1 locally"
+      git branch -D $1
+
+      echo -e "\n - Removing the branch $1 on remote"
+      git push origin :$1
+
+      echo -e "\n - The branch has now been archived"
+    else
+      echo -e '\n - Aborted. The branch was not removed locally or on the remote repository'
+      exit 0 
+    fi
+  else
+    echo -e '\n - Aborted archiving script'
+    exit 0
+  fi
+else
+  echo -e "No parameter provided, please provide branch name. Example $archive mybranch"
+fi
