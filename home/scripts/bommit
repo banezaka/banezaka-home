@@ -3,6 +3,10 @@
 #################################################################################
 # bommit - A simple script that prefixes your commit with the branch name your on
 #
+# If you want to run the script without writing the location to it add it to your 
+# path by going to /usr/local/bin and creating a soft symlink to the script or by
+# adding the script in that folder manually
+#
 # WARNING - This is still in the development phase and should be used with care,
 # do not use if you have not read through the script and understands the process.
 #
