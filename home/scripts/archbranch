@@ -18,7 +18,7 @@
 # todo: a check for if checkout or checkout -t-b is necessary
 
 if [ $1 != "" ]; then
-  read -p "Are you sure you want to archive the branch $1 ? [y/n] " prompt
+  read -p "Before archiving make sure that there is no tag for that branch and that the branch is not checked out locally. Are you sure you want to archive the branch $1 ? [y/n] " prompt
   if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
     git checkout --track -b $1 origin/$1
 
