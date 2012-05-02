@@ -7,6 +7,8 @@
 # path by going to /usr/local/bin and creating a soft symlink to the script or by
 # adding the script in that folder manually
 #
+# Usage - $ bommit 'Commit message'
+#
 # WARNING - This is still in the development phase and should be used with care,
 # do not use if you have not read through the script and understands the process.
 #
