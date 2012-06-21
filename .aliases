@@ -11,9 +11,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias hosts='fraise /etc/hosts'
+alias hosts='subl /etc/hosts'
 
-alias slt='open -a "Sublime Text 2"'
 alias n='nano'
 alias d='drush'
 alias g='git'
