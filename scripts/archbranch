@@ -16,8 +16,7 @@
 # todo: if somethings outputs fatal error or something like that, stop the script
 # todo: check if really necessary to do a fetch
 # todo: a check for if checkout or checkout -t-b is necessary
-# todo: use the fetch git branch function and save it in a variable and then run the script, then we dont need the second 
-parameter
+# todo: use the fetch git branch function and save it in a variable and then run the script, then we dont need the second parameter
 
 if [ $1 != "" ]; then
   read -p "You just told me to archive the branch $1 and then go back to the the branch $2 . Before archiving make sure that there is no tag for that branch and that the branch is not checked out locally.
