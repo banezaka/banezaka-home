@@ -31,5 +31,5 @@ tar -xvf $filename
 echo -e "\n - Removing $filename"
 rm -f $filename
 
-echo -e "\n - Removing hidden OS X files"
-rm -f ._*
+#echo -e "\n - Removing hidden OS X files"
+#rm -f ._*
