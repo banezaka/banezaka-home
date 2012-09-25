@@ -28,9 +28,6 @@ Are you sure you want to archive the branch $1 ? [y/n] " prompt
     echo -e "\n - Pulling on branch $1"
     git pull origin $1
 
-    echo -e "\n - Doing a git fetch"
-    git fetch
-
     echo -e "\n - Creating the tag archive/$1"
     git tag archive/$1
 
