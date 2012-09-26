@@ -24,7 +24,7 @@ if [ "$1" != "" ]; then
   # Checking if the archive exists locally
   ArchiveExistsLocally=$(git tag | grep archive/${1})
 
-  # If the branch exists abort the script 
+  # If the branch exists abort the script
   if [ "$ArchiveExistsLocally" == "archive/$1" ]; then
     echo -e "The branch already has a tag locally. Aborting script"
     exit 0
