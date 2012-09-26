@@ -18,11 +18,26 @@
 # todo: a check for if checkout or checkout -t-b is necessary
 # todo: use the fetch git branch function and save it in a variable and then run the script, then we dont need the second parameter
 
-if [ $1 != "" ]; then
-  read -p "You just told me to archive the branch $1 and then go back to the the branch $2 . Before archiving make sure that there is no tag for that branch and that the branch is not checked out locally.
- 
-Are you sure you want to archive the branch $1 ? [y/n] " prompt
+
+if [ "$1" != "" ]; then
+
+  # Checking if the archive exists locally
+  ArchiveExistsLocally=$(git tag | grep archive/${1})
+
+  # If the branch exists abort the script 
+  if [ "$ArchiveExistsLocally" == "archive/$1" ]; then
+    echo -e "The branch already has a tag locally. Aborting script"
+    exit 0
+  else
+    echo -e "No tag found locally. Continuing."
+  fi
+
+  read -p "You just told me to archive the branch $1 and then go back to the the branch $2. The branch should not be checked out locally when doing this.
+  Are you sure you want to archive the branch $1 ? [y/n] " prompt
+
   if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
+
+    echo -e "\n - Checking out the branch from remote"
     git checkout --track -b $1 origin/$1
 
     echo -e "\n - Pulling on branch $1"
@@ -30,6 +45,8 @@ Are you sure you want to archive the branch $1 ? [y/n] " prompt
 
     echo -e "\n - Creating the tag archive/$1"
     git tag archive/$1
+
+    # here we can compare the branches
 
     echo -e "\n - Pushing tags to remote"
     git push origin archive/$1
