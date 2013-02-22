@@ -17,6 +17,7 @@
 # todo: check if really necessary to do a fetch
 # todo: a check for if checkout or checkout -t-b is necessary
 # todo: use the fetch git branch function and save it in a variable and then run the script, then we dont need the second parameter
+# tood: check if there is a tag already for that branch
 
 if [ $1 != "" ]; then
   read -p "You just told me to archive the branch $1 and then go back to the the branch $2 . Before archiving make sure that there is no tag for that branch and that the branch is not checked out locally.
@@ -31,9 +32,16 @@ Are you sure you want to archive the branch $1 ? [y/n] " prompt
     echo -e "\n - Doing a git fetch"
     git fetch
 
+    # TAG_EXISTS=`git tag | grep -e "archive\/$1" -`
+    # echo -e '$TAG_EXISTS'
+    # if [[ $TAG_EXISTS != "" ]] ; then
+    #	echo "Aborting - tag exists"
+    #	exit 1
+    # fi
+ 
     echo -e "\n - Creating the tag archive/$1"
     git tag archive/$1
-
+    
     echo -e "\n - Pushing tags to remote"
     git push origin archive/$1
 
